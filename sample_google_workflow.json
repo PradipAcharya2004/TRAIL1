@@ -1,0 +1,30 @@
+{
+  "schema_version": 4,
+  "app": "Smart Workflow Automator v4",
+  "steps": [
+    {
+      "type": "open_website",
+      "url": "https://www.google.com",
+      "retries": 1,
+      "on_fail": "ask"
+    },
+    {
+      "type": "wait",
+      "seconds": 1.0
+    },
+    {
+      "type": "browser_search",
+      "text": "{query}",
+      "prefer_chrome_helper": true,
+      "retries": 1,
+      "on_fail": "ask"
+    },
+    {
+      "type": "chrome_wait_text",
+      "text": "{query}",
+      "timeout": 10,
+      "retries": 1,
+      "on_fail": "skip"
+    }
+  ]
+}
